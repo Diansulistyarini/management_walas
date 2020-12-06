@@ -11,32 +11,30 @@
 			font-size: 9pt;
 		}
     </style>
-    
+
     <center>
-		<h5>Laporan Jadwal Pelajaran</h5>
+		<h5>Laporan Keuangan Kelas</h5>
 	</center>
  
 	<table class='table table-bordered'>
 		<thead>
             <tr>
-                <th>No</th>
-                <th>Hari</th>
-                <th>Tanggal</th>
-                <th>Nama Guru</th>
-                <th>Mata Pelajaran</th>
-                <th>Jam</th>
+                <th scope="col">No</th>
+                <th scope="col">Bulan</th>
+                <th scope="col">Pemasukan Kelas</th>
+                <th scope="col">Pengeluaran Kelas</th>
+                <th scope="col">Saldo</th>
             </tr>
         </thead>
         <tbody>
             @php $i=1 @endphp
-            @foreach($jadwals as $j)
+            @foreach($keuangan as $kas)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $j->hari }}</td>
-                <td>{{ $j->tanggal }}</td>
-                <td>{{ $j->nama_guru }}</td>
-                <td>{{ $j->mata_pelajaran }}</td>
-                <td>{{ $j->jam }}</td>
+                <td>{{ $kas->bulan}}</td>
+                <td>{{ $kas->pemasukan}}</td>
+                <td>{{ $kas->pengeluaran}}</td>
+                <td>{{ $kas->saldo }}</td>
             </tr>
             @endforeach
         </tbody>

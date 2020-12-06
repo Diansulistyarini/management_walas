@@ -1,11 +1,16 @@
 @extends('bagian.sidebar')
 
 @section('content')
-    <button style="margin-top:2%;" class="btn btn-success" data-toggle="modal" data-target="#addData">Input ADM Baru</button> 
-
+    <button type="button" data-toggle="modal" data-target="#addData" style="color:white;margin-top:2%" class="btn btn-primary"><i class="fa fa-plus"></i> ADM </button> 
+    <a href="/adm/cetak_pdf" class="btn btn-danger" target="_blank" style="margin-top: 2%">Export PDF</a>
+    <a href="/adm/export_excel" class="btn btn-success" target="_blank" style="margin-top:2%;">Export EXCEL</a>
+    
+    <div class="card-header text-center mt-4">
+    <h4  style="color:black">Data ADM</h4>
     <table class="table table-striped" style="text-align:center; margin-top:2%;">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Materi Pokok</th>
                             <th>Target Pengerjaan</th>
                             <th>Opsi</th>
@@ -14,46 +19,21 @@
                     <tbody>
                         @foreach($adm_walass as $a)
                         <tr>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $a->materiPokok }}</td>
                             <td>{{ $a->targetPengerjaan }}</td>
                             <td>
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#modalUpdate{{ $a->id }}">Update</button>
-                                <button data-toggle="modal" data-target="#hapusData" type="button" class="btn btn-danger">Hapus</button>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#modalUpdate{{ $a->id }}">Edit</button>
+                                <a href="/adm/hapus/{{ $a->id }}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
-
-
+            </div>
     
-    <!-- Delete Data Keuangan -->
-    @foreach ($adm_walass as $k)
-    <div class="modal" tabindex="-1" id="hapusData">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Hapus Data ADM</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Anda Yakin Ingin Menghapus Data ini?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <a href="/adm/hapus/{{ $k->id }}"><button type="button" class="btn btn-danger">Delete</button></a>
-            </div>
-            </div>
-        </div>
-        </div>
-        @endforeach
-    
-    
-        <!-- Modal Update Barang-->
-    @foreach($adm_walass as $a)
-
+    <!-- Update Data ADM -->
+    @foreach ($adm_walass as $a)
     <div class="modal fade" id="modalUpdate{{ $a->id }}" tabindex="-1" aria-labelledby="modalUpdate" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -108,7 +88,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Tambah Data Keuangan Kelas </h5>
+                <h5 class="modal-title">Tambah Data ADM Kelas </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -156,5 +136,4 @@
             </form>
         </div>
     </div>
-
 @endsection

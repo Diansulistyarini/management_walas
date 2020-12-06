@@ -9,7 +9,7 @@ class KasusController extends Controller
 {
     public function index(){
         $kasus = Kasussiswa::all();
-        return view('kasus.kasus', ['kasussiswa' => $kasus]);
+        return view('kasus.kasus', ['kasussiswas' => $kasus]);
     }    
 
     public function store(Request $request)

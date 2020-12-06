@@ -65,7 +65,7 @@ class RapatController extends Controller
     {
         $jadwal = Rapat::find($id_jadwal);
         $jadwal->delete();
-        return redirect('/jadwal');
+        return redirect('/rapat');
     }
 	
     public function index()

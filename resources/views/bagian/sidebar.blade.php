@@ -31,7 +31,7 @@
                 <ul class="nav side-menu">
                   <li><a href="/tampil"><i class="fa fa-home"></i> Home </a></li>
 
-                  <li><a href="/adm"><i class="fa fa-edit"></i> Data ADM </a></li>
+                  <li><a href="/siswa"><i class="fa fa-book"></i> Data Siswa </a></li>
 
                   <li><a href="/jadwal"><i class="fa fa-desktop"></i> Jadwal Mengajar </a></li>
 
@@ -40,7 +40,7 @@
               <div class="menu_section">
                 <h3>Management Kelas</h3>
                 <ul class="nav side-menu">
-                  <li><a href="/siswa"><i class="fa fa-book"></i> Data Siswa </a></li>
+                  <li><a href="/adm"><i class="fa fa-edit"></i> Data ADM </a></li>
 
                   <li><a href="/absen"><i class="fa fa-apple"></i> Absensi Kelas </a></li>
 
@@ -79,10 +79,10 @@
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Back" href="/home">
-                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              <a data-toggle="tooltip" data-placement="top" title="Back" href="/home" style="width:6cm;">
+                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Setting">
+              {{-- <a data-toggle="tooltip" data-placement="top" title="Setting">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
               <a data-toggle="tooltip" data-placement="top" title="....">
@@ -90,7 +90,7 @@
               </a>
               <a data-toggle="tooltip" data-placement="top" title=".....">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-              </a>
+              </a> --}}
             </div>
             <!-- /menu footer buttons -->
           </div>
@@ -115,7 +115,7 @@
              <!-- page content -->
           </div>
         </div>
-    <div class="right_col" role="main" style="height:650px;">
+    <div class="right_col" role="main" style="height:auto;">
           
           @yield('content')
 

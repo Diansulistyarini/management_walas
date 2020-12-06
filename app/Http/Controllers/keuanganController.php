@@ -34,7 +34,7 @@ class keuanganController extends Controller
     {
         $keuangan = Keuangan::find($id);
         $keuangan->delete();
-        return redirect('/keuangan');
+        return redirect('/keuangannn');
     }
 
     public function update(Request $request,$id)
@@ -46,6 +46,6 @@ class keuanganController extends Controller
         $keuangan->saldo = $request->saldo;
         $keuangan->save();
         // return dd(keuangan);
-        return redirect('/keuangan');
+        return redirect('/keuangannn');
     }
 }

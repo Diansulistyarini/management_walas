@@ -1,11 +1,16 @@
 @extends('bagian.sidebar')
 
 @section('content')
-    <button type="button" data-toggle="modal" data-target="#addData" style="margin-top:2%;" class="btn btn-success">Tambah</button>
-                    
+    <a  data-toggle="modal" data-target="#addData" class="btn btn-primary" style="color:white; margin-top:2%"><i class="fa fa-plus"></i>Tambah</a>
+    <a href="/keuangan/cetak_pdf" class="btn btn-danger" target="_blank" style="margin-top:2%">Export PDF</a>
+    <a href="/keuangan/export_excel" class="btn btn-success" target="_blank" style="margin-top:2%;">Export EXCEL</a>
+
+    <div class="card-header text-center mt-4">
+    <h4  style="color:black">Data Keuangan Kelas</h4>
     <table class="table table-striped" style="text-align:center; margin-top:2%;">
         <thead>
             <tr>
+                <th scope="col">No</th>
                 <th scope="col">Bulan</th>
                 <th scope="col">Pemasukan Kelas</th>
                 <th scope="col">Pengeluaran Kelas</th>
@@ -16,21 +21,22 @@
         @foreach ($keuangan as $k)
         <tbody>
             <tr>
-                <td>{{ $k -> bulan}}</td>
-                <td>{{ $k -> pemasukan}}</td>
-                <td>{{ $k -> pengeluaran}}</td>
-                <td>{{ $k -> saldo }}</td>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $k->bulan}}</td>
+                <td>{{ $k->pemasukan}}</td>
+                <td>{{ $k->pengeluaran}}</td>
+                <td>{{ $k->saldo }}</td>
                 <td>
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#modalUpdate{{ $k->id }}">Update</button>
-                    <!-- <a href=""><button type="button" class="btn btn-info">Edit</button></a> -->
-                    <button data-toggle="modal" data-target="#hapusData" type="button" class="btn btn-danger">Hapus</button>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#modalUpdate{{ $k->id }}">Edit</button>
+                    <a href="/keuangan/hapus/{{ $k->id  }}" class="btn btn-danger">Delete</button>
                 </td>
             </tr>
         </tbody>
         @endforeach
     </table>
+    </div>
 
-    <!-- Modal Update Barang-->
+    <!-- Modal Update -->
     @foreach($keuangan as $k)
     <div class="modal fade" id="modalUpdate{{ $k->id }}" tabindex="-1" aria-labelledby="modalUpdate" aria-hidden="true">
         <div class="modal-dialog">
@@ -64,13 +70,13 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Perbarui Data</button>
                     </form>
-                    <!--END FORM UPDATE BARANG-->
+                    <!--END FORM UPDATE -->
                 </div>
             </div>
         </div>
     </div>
     @endforeach
-    <!-- End Modal UPDATE Barang-->
+    <!-- End Modal UPDATE -->
 
     <!-- Add Data Keuangan -->
     <div class="modal" tabindex="-1" id="addData">
@@ -134,30 +140,4 @@
         </form>
         </div>
     </div>
-
-    <!-- Delete Data Keuangan -->
-    @foreach ($keuangan as $k)
-    <div class="modal" tabindex="-1" id="hapusData">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Hapus Data Keuangan</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Anda Yakin Ingin Menghapus Data ini?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <a href="/keuangan/hapus/{{ $k->id }}"><button type="button" class="btn btn-danger">Delete</button></a>
-            </div>
-            @endforeach
-            </div>
-        </div>
-    </div>
-    
-    
-
 @endsection

@@ -11,32 +11,26 @@
 			font-size: 9pt;
 		}
     </style>
-    
+
     <center>
-		<h5>Laporan Jadwal Pelajaran</h5>
+		<h5>Laporan ADM</h5>
 	</center>
  
 	<table class='table table-bordered'>
 		<thead>
             <tr>
                 <th>No</th>
-                <th>Hari</th>
-                <th>Tanggal</th>
-                <th>Nama Guru</th>
-                <th>Mata Pelajaran</th>
-                <th>Jam</th>
+                <th>Materi Pokok</th>
+                <th>Target Pengerjaan</th>
             </tr>
         </thead>
         <tbody>
             @php $i=1 @endphp
-            @foreach($jadwals as $j)
+            @foreach($dataadms as $a)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $j->hari }}</td>
-                <td>{{ $j->tanggal }}</td>
-                <td>{{ $j->nama_guru }}</td>
-                <td>{{ $j->mata_pelajaran }}</td>
-                <td>{{ $j->jam }}</td>
+                <td>{{ $a->materiPokok }}</td>
+                <td>{{ $a->targetPengerjaan }}</td>
             </tr>
             @endforeach
         </tbody>

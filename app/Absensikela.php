@@ -10,5 +10,5 @@ class Absensikela extends Model
     
     protected $table = "absensikelas";
 
-    protected $fillable = ['id', 'tanggal', 'jumlahSiswaHadir', 'jumlahKetidakhadiran','namaSiswaTidakHadir', 'buktiKBM','kode'];
+    protected $fillable = ['id', 'tanggal', 'jumlahSiswaHadir', 'jumlahKetidakhadiran', 'bukti','kode'];
 }

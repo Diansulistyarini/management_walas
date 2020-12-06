@@ -10901,5 +10901,11 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+
+  .right_col{
+    height: auto;
+    min-height: auto;
+    overflow-y: scroll;
+  }
 }
 

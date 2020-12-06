@@ -31,7 +31,7 @@ class AdmController extends Controller
 
     public function edit($id)
     {
-        $adm_walass = Adm::find($id);
+        $adm_walass = Dataadm::find($id);
         return view('walas.adm.edit_adm', ['adm_walass' => $adm_walass]);
     }
 

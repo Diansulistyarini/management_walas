@@ -13,13 +13,18 @@
 		}
 	</style>
  
-	<table class='table table-bordered'>
+    <center>
+        <h5>Laporan Absensi Kelas</h5>
+    </center>
+
+	<table class='table table-bordered' style="text-align: center">
 		<thead>
             <tr>
+                <th>No</th>
                 <th>Tanggal</th>
                 <th>Jumlah Siswa Hadir</th>
                 <th>Jumlah Ketidakhadiran</th>
-                <th>Nama Siswa Tidak Hadir</th>
+                {{-- <th>Nama Siswa Tidak Hadir</th> --}}
                 <th>Bukti Kbm</th>
             </tr>
         </thead>
@@ -27,11 +32,12 @@
             @php $i=1 @endphp
             @foreach($absen as $j)
             <tr>
+                <td>{{ $loop->iteration }}</td>
                 <td>{{ $j->tanggal }}</td>
                 <td>{{ $j->jumlahSiswaHadir }}</td>
                 <td>{{ $j->jumlahKetidakhadiran }}</td>
-                <td>{{ $j->namaSiswaTidakHadir }}</td>
-                <td>{{ $j->buktiKBM }}</td>
+                {{-- <td>{{ $j->namaSiswaTidakHadir }}</td> --}}
+                <td>{{ $j->bukti }}</td>
             </tr>
             @endforeach
         </tbody>
